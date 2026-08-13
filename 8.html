@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Array Operations</title>
+</head>
+
+<body>
+
+    <h1>JavaScript Array Operations</h1>
+
+    <button onclick="arrayOperations()">Run Array Operations</button>
+
+    <h2>Output:</h2>
+    <pre id="output"></pre>
+
+    <script>
+
+        function arrayOperations() {
+
+            let output = "";
+
+            // Original Array
+            let arr = [10, 20, 30, 40, 50];
+
+            output += "Original Array: " + arr + "\n\n";
+
+
+            // 1. push()
+            // Adds element at the end
+            arr.push(60);
+
+            output += "1. push(60): " + arr + "\n";
+
+
+            // 2. pop()
+            // Removes last element
+            let popped = arr.pop();
+
+            output += "2. pop(): Removed " + popped + "\n";
+            output += "   Array: " + arr + "\n";
+
+
+            // 3. unshift()
+            // Adds element at beginning
+            arr.unshift(5);
+
+            output += "3. unshift(5): " + arr + "\n";
+
+
+            // 4. shift()
+            // Removes first element
+            let shifted = arr.shift();
+
+            output += "4. shift(): Removed " + shifted + "\n";
+            output += "   Array: " + arr + "\n";
+
+
+            // 5. splice()
+            // Removes/adds elements
+            arr.splice(2, 1, 35);
+
+            output += "5. splice(2, 1, 35): " + arr + "\n";
+
+
+            // 6. slice()
+            // Creates a new array from a portion
+            let sliced = arr.slice(1, 4);
+
+            output += "6. slice(1, 4): " + sliced + "\n";
+
+
+            // 7. concat()
+            // Joins two arrays
+            let arr2 = [70, 80];
+
+            let combined = arr.concat(arr2);
+
+            output += "7. concat(): " + combined + "\n";
+
+
+            // 8. indexOf()
+            // Finds index of an element
+            let index = arr.indexOf(30);
+
+            output += "8. indexOf(30): " + index + "\n";
+
+
+            // 9. includes()
+            // Checks whether element exists
+            let exists = arr.includes(40);
+
+            output += "9. includes(40): " + exists + "\n";
+
+
+            // 10. join()
+            // Converts array into string
+            let joined = arr.join(" - ");
+
+            output += "10. join(): " + joined + "\n";
+
+
+            // 11. reverse()
+            // Reverses array
+            let reversed = [...arr].reverse();
+
+            output += "11. reverse(): " + reversed + "\n";
+
+
+            // 12. sort()
+            // Sorts array
+            let numbers = [50, 10, 40, 20, 30];
+
+            numbers.sort((a, b) => a - b);
+
+            output += "12. sort(): " + numbers + "\n";
+
+
+            // 13. forEach()
+            // Executes function for every element
+            output += "13. forEach(): ";
+
+            arr.forEach(function(value) {
+                output += value + " ";
+            });
+
+            output += "\n";
+
+
+            // 14. map()
+            // Creates new array after modification
+            let doubled = arr.map(function(value) {
+                return value * 2;
+            });
+
+            output += "14. map(): " + doubled + "\n";
+
+
+            // 15. filter()
+            // Selects elements according to condition
+            let greaterThan25 = arr.filter(function(value) {
+                return value > 25;
+            });
+
+            output += "15. filter(>25): " + greaterThan25 + "\n";
+
+
+            // 16. find()
+            // Finds first element satisfying condition
+            let found = arr.find(function(value) {
+                return value > 25;
+            });
+
+            output += "16. find(>25): " + found + "\n";
+
+
+            // 17. findIndex()
+            // Finds index of first matching element
+            let foundIndex = arr.findIndex(function(value) {
+                return value > 25;
+            });
+
+            output += "17. findIndex(>25): " + foundIndex + "\n";
+
+
+            // 18. some()
+            // Checks if at least one element satisfies condition
+            let someResult = arr.some(function(value) {
+                return value > 45;
+            });
+
+            output += "18. some(>45): " + someResult + "\n";
+
+
+            // 19. every()
+            // Checks if every element satisfies condition
+            let everyResult = arr.every(function(value) {
+                return value > 0;
+            });
+
+            output += "19. every(>0): " + everyResult + "\n";
+
+
+            // 20. reduce()
+            // Reduces array to a single value
+            let sum = arr.reduce(function(total, value) {
+                return total + value;
+            }, 0);
+
+            output += "20. reduce(): Sum = " + sum + "\n";
+
+
+            // Display output
+            document.getElementById("output").textContent = output;
+        }
+
+    </script>
+
+</body>
+</html>
