@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validation Form</title>
+</head>
+
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form id="myForm" action="success.html" method="get">
+
+        <label>Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+        <br><br>
+
+        <label>Email:</label>
+        <input type="text" id="email" placeholder="Enter your email">
+        <br><br>
+
+        <label>Password:</label>
+        <input type="password" id="password" placeholder="Enter password">
+        <br><br>
+
+        <label>Mobile:</label>
+        <input type="text" id="mobile" placeholder="Enter 10 digit mobile">
+        <br><br>
+
+        <button type="submit">Submit</button>
+        </form>
+<script>
+    const form = document.getElementById("myForm");
+    form.addEventListener("submit",function(event){
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const mobile = document.getElementById("mobile").value.trim();
+
+        if(name === ""){
+            alert("Name is required");
+            return;
+        }
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!emailPattern.test(email)){
+
+            alert("Invalid email. Please enter a valid email address");
+            return;
+    }
+    if(password.length<8){
+        alert("Invalid password. It must be at least 8 characters long");
+        return;
+    }
+     const mobilePattern = /^[0-9]{10}$/;
+     if(!mobilePattern.test(mobile)){
+         alert("Please enter a valid 10-digit mobile number");
+         return;
+     }
+     alert("Form submitted successfully!");
+    }) 
+</script>
+
+    
+</body>
+</html>
